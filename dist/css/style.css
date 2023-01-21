@@ -1,0 +1,107 @@
+body * {
+    box-sizing: border-box;
+    font-family: 'sans-serif';
+    color: #183153;
+}
+/*Flex Container*/
+.flex-container {
+    display: flex;
+}
+
+.tasks-container {
+    flex-basis: 80%;
+    height: 100vh;
+}
+/*Lists*/
+.lists-container {
+    background-color: #f4f4f6;
+    flex-basis: 20%;
+    height: 100vh;
+    min-width: 300px;
+    text-align: center;
+    padding-top: 20px; 
+}
+.create-list-div {
+    border-bottom: 2px solid #000;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 5px;
+}
+#open-create-list-btn {
+    text-decoration: none;
+    transition: .5s;
+    padding: 5px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    transition: .5s;
+}
+#open-create-list-btn:hover {
+    background-color: #183153;
+    color: #e6e6ea;
+}
+#open-create-list-btn:hover .plus-icon {
+    color: #e6e6ea ;
+    border: 1px solid #e6e6ea;
+}
+.plus-icon {
+    margin-right: 10px;
+    border: 1px solid #183153;
+    border-radius: 50%;
+    padding: 2px;
+}
+.lists {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    margin-top: 30px;
+}
+.list {
+    cursor: pointer;
+    display: flex;
+    flex-basis: 30px;
+    background-color: #e6e6ea;
+    border: 1px solid #fff;
+    flex-direction: column;
+    justify-content: center;
+    transition: .5s;
+}
+.list:hover {
+    background-color: #183153;
+}
+.list:hover .list-name {
+    color: #e6e6ea;
+}
+/*Task*/
+.tasks-container {
+    text-align: center;
+}
+#open-create-task-btn,
+#delete-list-btn {
+    text-decoration: none;
+    transition: .5s;
+    padding: 5px 20px;
+    display: inline-block;
+    border-radius: 10px;
+    transition: .5s;
+}
+#open-create-task-btn:hover,
+#delete-list-btn:hover {
+    background-color: #183153;
+    color: #e6e6ea;
+}
+#open-create-task-btn:hover .plus-icon {
+    color: #e6e6ea ;
+    border: 1px solid #e6e6ea;
+}
+.delete-icon {
+    margin-right: 10px;
+    border: 1px solid #183153;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: .9em;
+}
+#delete-list-btn:hover .delete-icon {
+    color: #e6e6ea;
+    border: 1px solid #e6e6ea;
+}
