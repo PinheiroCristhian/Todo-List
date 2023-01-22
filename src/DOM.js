@@ -5,6 +5,10 @@ const DOM = () => {
     const cancelTask = document.querySelector('#cancel-task-btn');
     const backgroundList = document.querySelector('.background-form-list');
     const backgroundTask = document.querySelector('.background-form-task');
+    const confirmListBtn = document.querySelector('#confirm-list-btn');
+    const listName = () => document.querySelector('#list-name-value').value;
+    const listContainer = document.querySelector('.lists');
+    const lists = () => document.querySelectorAll('.list');
 
     return {
         openListForm,
@@ -13,6 +17,10 @@ const DOM = () => {
         cancelTask,
         backgroundList,
         backgroundTask,
+        confirmListBtn,
+        listName,
+        listContainer,
+        lists,
     }
 }
 
