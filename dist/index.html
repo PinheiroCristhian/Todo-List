@@ -15,7 +15,7 @@
     <div class="container clearfix">
         <div class="lists-container">
             <div class="create-list-div">
-                <a href="#" id="open-create-list-btn"><span class="fa-solid fa-plus plus-icon"></span>Create List</a>
+                <a href="#" id="open-form-btn"><span class="fa-solid fa-plus plus-icon"></span>Create List</a>
             </div>
             <div class="lists">
                 <div class="list"><span class="list-name">Daily Activities</span></div>
@@ -61,17 +61,59 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum asperiores perspiciatis magnam corrupti, placeat distinctio illum laudantium dolorem, facere, quae eos aperiam tenetur maiores libero officia qui. Architecto, fugiat magnam.</p>
                     </div>
                 </div>
+                <div class="task">
+                    <div class="task-informations details clearfix">
+                        <div class="info-div task-title">
+                            <span class="title">Study</span>
+                        </div>
+                        <div class="info-div task-date">
+                            <span class="date">22/01/2022</span>
+                        </div>
+                        <div class="info-div task-priority">
+                            <span class="priority">High Priority</span>
+                        </div>
+                    </div>
+                    <div class="task-informations actions clearfix">
+                        <div class="info-div edit-task">
+                            <span class="edit-btn">EDIT TASK</span>
+                        </div>
+                        <div class="info-div delete-task">
+                            <span class="delete-btn">DELETE TASK</span>
+                        </div>
+                    </div>
+                    <div class="task-informations expand-descriptio-btn">
+                        <a href="#"><span><i class="fa-solid fa-arrow-down-short-wide"></i></span></a>
+                    </div>
+                    <div class="task-informations description hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum asperiores perspiciatis magnam corrupti, placeat distinctio illum laudantium dolorem, facere, quae eos aperiam tenetur maiores libero officia qui. Architecto, fugiat magnam.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="background-form hidden">
-        <form action="#" class="task-inputs-form">
+    <div class="background-form-list hidden">
+        <form class="list-form">
+            <div class="list-input">
+                <label>
+                    <span>List Name</span>
+                    <input type="text" class="list-name" placeholder="List Name">
+                    
+                </label>
+            </div>
+            <div class="list-input">
+                <button id="confirm-list-btn">Confirm</button>
+                <button id="cancel-list-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="background-form-task hidden">
+        <form action="#" class=" task-form">
             <div class="task-inputs">
                 <label>
                     <span>Title</span>
                     <input type="text" class="title-value" placeholder="Name">
                 </label>
-                
             </div>
             <div class="task-inputs">
                 <label>
@@ -89,11 +131,17 @@
                         <option value="low">Low</option>
                     </select>
                 </label>
+            </div>
+            <div class="task-inputs">
+                <label>
+                    <span>Description</span><br>
+                    <textarea name="" id="task-description" cols="40" rows="5"></textarea>
+                </label>
                 
             </div>
-            <div class="confirm">
-                <button id="confirm-btn">Confirm</button>
-                <button id="cancel-btn">Cancel</button>
+            <div class="confirm-task">
+                <button id="confirm-task-btn">Confirm</button>
+                <button id="cancel-task-btn">Cancel</button>
             </div>
         </form>
     </div>
