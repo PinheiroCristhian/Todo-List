@@ -1,8 +1,10 @@
 import { events } from "./Events";
-import { displayLists } from "./UpdateScreen";
+import { changeList, displayLists, displayTask, displayTasks } from "./UpdateScreen";
+import { listIndex } from "./Conditionals";
 
-(function initialSettings() {
+(function initialSetup() {
     displayLists();
+    displayTasks(listIndex);
+    events()
 })();
 
-events()

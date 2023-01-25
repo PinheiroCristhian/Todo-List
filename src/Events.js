@@ -1,7 +1,8 @@
 import DOM from "./DOM";
-import { checkListName } from "./Conditionals"
+import { checkListName, checkTaskInputs, whichList, checkListIndex } from "./Conditionals"
 import { list, lists, createList } from "./List";
-import { displayLists } from "./UpdateScreen";
+import { changeList, clearLists, displayLists } from "./UpdateScreen";
+import { Task } from "./Tasks";
 
 const events = (function () {
     /**Opening Functions */
@@ -34,17 +35,51 @@ const events = (function () {
         DOM().confirmListBtn.addEventListener('click', () => {
             const isInputValid = checkListName();
             const listName = DOM().listName();
+
             if (isInputValid) {
                 createList(listName);
-                console.log(lists);
                 DOM().backgroundList.classList.add('hidden');
                 alert('List Created Successfully');
+                clearLists();
                 displayLists();
+                changeList();
             } else {
                 return;
             }
         });
     })();
+
+    (function createTasksFunc() {
+        DOM().confirmTaskBtn.addEventListener('click', () => {
+            const isTextValid = checkTaskInputs();
+            const taskName = DOM().taskTitle();
+            const dueDate = DOM().taskDate();
+            const priority = DOM().taskPriority();
+            const description = DOM().taskDescription();
+            /**If inputs are not empty, then it's gonna create a task */
+
+            if (isTextValid) {
+                console.log({
+                    taskName,
+                    dueDate,
+                    priority,
+                    description
+                });
+
+                const newTask = Task(taskName, dueDate, priority, description);
+                DOM().backgroundTask.classList.add('hidden');
+                alert('Task Created Successfully');
+                console.table(newTask);
+                
+            } else {
+                return 'nothing';
+            }
+        });
+    })();
+
+    /**Change List*/
+    
+  
 
 })();
 
