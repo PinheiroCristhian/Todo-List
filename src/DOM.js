@@ -7,6 +7,7 @@ const DOM = () => {
     const backgroundTask = document.querySelector('.background-form-task');
     const confirmListBtn = document.querySelector('#confirm-list-btn');
     const confirmTaskBtn = document.querySelector('#confirm-task-btn');
+    const confirmEditBtn = document.querySelector('#confirm-edit-btn');
     const listName = () => document.querySelector('#list-name-value').value;
     const listContainer = document.querySelector('.lists');
     const lists = () => document.querySelectorAll('.list');
@@ -15,6 +16,7 @@ const DOM = () => {
     const taskPriority = () => document.querySelector('.priority-value').value;
     const taskDescription = () => document.querySelector('#task-description').value;
     const taskContainer = document.querySelector('.tasks');
+    const editBtn = () => document.querySelectorAll('.edit-btn');
 
     return {
         openListForm,
@@ -33,6 +35,8 @@ const DOM = () => {
         taskPriority,
         taskDescription,
         taskContainer,
+        confirmEditBtn,
+        editBtn
     }
 }
 

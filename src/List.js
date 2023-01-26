@@ -3,10 +3,10 @@ const lists = [
         getListName: 'Default',
         tasks: [
             {
-                getTaskName: () => 'Study',
-                getTaskDate: () => '2023-01-10',
-                getTaskPriority: () => 'high',
-                getTaskDescription: () => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum asperiores perspiciatis magnam corrupti, placeat distinctio illum laudantium dolorem, facere, quae eos aperiam tenetur maiores libero officia qui. Architecto, fugiat magnam.',
+                task: 'Study',
+                date: '2023-01-10',
+                priority: 'High',
+                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum asperiores perspiciatis magnam corrupti, placeat distinctio illum laudantium dolorem, facere, quae eos aperiam tenetur maiores libero officia qui. Architecto, fugiat magnam.',
             },
         ],
     },
@@ -15,10 +15,10 @@ const lists = [
         getListName: 'Secondary',
         tasks: [
             {
-                getTaskName: () => 'O romance',
-                getTaskDate: () => '2024-05-21',
-                getTaskPriority: () => 'Low',
-                getTaskDescription: () =>'Ser ou não ser? o que será que serei? o que será o que eu vou ser?',
+                task: 'O romance',
+                date: '2024-05-21',
+                priority: 'Low',
+                description: 'Ser ou não ser? o que será que serei? o que será o que eu vou ser?',
             }
         ]
     }

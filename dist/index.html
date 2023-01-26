@@ -98,10 +98,11 @@
             <div class="task-inputs">
                 <label>
                     <span>Priority</span>
-                    <select name="priority" class="priority-value">
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
+                    <select name="priority" class="priority-value" required>
+                        <option value="">Choose A Priority</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
                     </select>
                 </label>
             </div>
@@ -113,6 +114,7 @@
                 
             </div>
             <div class="confirm-task">
+                <a href="#" id="confirm-edit-btn" class="hidden">Edit</a>
                 <a href="#" id="confirm-task-btn">Confirm</a>
                 <a href="#" id="cancel-task-btn">Cancel</a>
             </div>

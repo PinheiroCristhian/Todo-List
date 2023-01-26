@@ -2,7 +2,7 @@ import DOM from "./DOM";
 
 
 let listIndex = 0;
-
+let taskIndex = 0;
 const checkListName = () => {
     const listName = DOM().listName() ? true : false;
     return listName;
@@ -25,5 +25,6 @@ const checkTaskInputs = () => {
 export {
     checkListName,
     checkTaskInputs,
-    listIndex
+    listIndex,
+    taskIndex
 };

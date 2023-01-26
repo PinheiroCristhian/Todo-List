@@ -3,10 +3,7 @@ body * {
     font-family: 'sans-serif';
     color: #183153;
 }
-/*Basic setupe*/
-.hidden {
-    display: none;
-}
+
 /* Clearfix */
 .clearfix::after, .clearfix::before {
 	content: ' ';
@@ -188,7 +185,8 @@ body * {
 #confirm-task-btn,
 #cancel-task-btn,
 #confirm-list-btn,
-#cancel-list-btn {
+#cancel-list-btn,
+#confirm-edit-btn {
     display: inline-block;
     text-decoration: none;
     padding: 2px 10px;
@@ -202,7 +200,8 @@ body * {
 #confirm-task-btn:hover,
 #cancel-task-btn:hover,
 #confirm-list-btn:hover,
-#cancel-list-btn:hover {
+#cancel-list-btn:hover,
+#confirm-edit-btn:hover {
     background-color: #183153;
     color: #fff;
 }
@@ -217,4 +216,8 @@ body * {
     opacity: 1;
     min-height: 50px;
     line-height: 50px;
+}
+/*Basic setup*/
+.hidden {
+    display: none !important;
 }

@@ -1,6 +1,6 @@
 import DOM from "./DOM";
 import { lists } from "./List";
-import { listIndex } from "./Conditionals";
+import { listIndex, taskIndex } from "./Conditionals";
 
 function displayLists() {
     lists.forEach(eachList => {
@@ -75,13 +75,16 @@ function displayTasks(index) {
 
 
         //Adding Texts
-        titleText.innerText = taskProperties.getTaskName();
-        dateText.innerText = taskProperties.getTaskDate();
-        priorityText.innerText = taskProperties.getTaskPriority();
+        titleText.innerText = taskProperties.task;
+        dateText.innerText = taskProperties.date;
+        priorityText.innerText = taskProperties.priority;
         editBtn.innerText = 'EDIT TASK';
         deleteBtn.innerText = 'DELETE TASK';
         expandBtn.innerText = 'SEE DESCRIPTION';
-        descriptionText.innerText = taskProperties.getTaskDescription();
+        descriptionText.innerText = taskProperties.description;
+        console.log(taskProperties)
+        
+
 
 
         //Inserting DOM to HTML
@@ -103,6 +106,7 @@ function displayTasks(index) {
         expandDescriptionDiv.append(expandBtn);
         descriptionDiv.append();
     });
+    openEditForm();
 }
 
 function clearTasks() {
@@ -110,6 +114,14 @@ function clearTasks() {
     task.forEach(eachTask => {
         eachTask.remove();
     });
+}
+
+function clearTaskInputs() {
+    document.querySelector('.date-value').value = '';
+    document.querySelector('.title-value').value = '';
+    document.querySelector('.priority-value').value = 'High';
+    document.querySelector('#task-description').value = '';
+
 }
 
 function clearLists() {
@@ -128,4 +140,29 @@ function changeList() {
     });
 }
 
-export { displayLists, changeList, clearLists, displayTasks };
+function openEditForm() {
+    const editBtn = DOM().editBtn();
+    const confirmEdit = DOM().confirmEditBtn;
+    const confirmTaskBtn = DOM().confirmTaskBtn;
+    const editForm = DOM().backgroundTask;
+
+    editBtn.forEach((task, newTaskIndex) => {
+        task.addEventListener('click', () => {
+
+            editForm.classList.remove('hidden');
+            confirmEdit.classList.remove('hidden');
+            confirmTaskBtn.classList.add('hidden');
+            taskIndex = newTaskIndex;
+            //console.log(`Task index is ${taskIndex}`)
+            
+
+
+        });
+    });
+}
+
+function editTask() {
+
+}
+
+export { displayLists,changeList, clearLists, displayTasks, openEditForm, clearTaskInputs };

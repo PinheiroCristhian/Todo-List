@@ -1,8 +1,8 @@
 import DOM from "./DOM";
-import { checkListName, checkTaskInputs, listIndex} from "./Conditionals"
+import { checkListName, checkTaskInputs, listIndex, taskIndex} from "./Conditionals"
 import { list, lists, createList } from "./List";
-import { changeList, clearLists, displayLists, displayTasks } from "./UpdateScreen";
-import { createTask, Task } from "./Tasks";
+import { changeList, clearLists, clearTaskInputs, displayLists, displayTasks } from "./UpdateScreen";
+import { createTask, editTask, Task } from "./Tasks";
 
 const events = (function () {
     /**Opening Functions */
@@ -59,14 +59,35 @@ const events = (function () {
             /**If inputs are not empty, then it's gonna create a task */
 
             if (isTextValid) {
-               
                 createTask(taskName, dueDate, priority, description);
                 DOM().backgroundTask.classList.add('hidden');
                 alert('Task Created Successfully');
-                
+                clearTaskInputs();
                 
             } else {
-                return 'nothing';
+                return;
+            }
+        });
+    })();
+
+    (function editTaskFunc() {
+        DOM().confirmEditBtn.addEventListener('click', () => {
+            const isTextValid = checkTaskInputs();
+            const taskName = DOM().taskTitle();
+            const dueDate = DOM().taskDate();
+            const priority = DOM().taskPriority();
+            const description = DOM().taskDescription();
+            /**If inputs are not empty, then it's gonna create a task */
+
+            if (isTextValid) {
+                //createTask(taskName, dueDate, priority, description);
+
+                //DOM().backgroundTask.classList.add('hidden');
+                editTask(taskName, dueDate, priority, description, taskIndex);
+                alert('Task Edited Successfully');
+               // console.log({taskName, dueDate, priority, description});
+            } else {
+                return;
             }
         });
     })();
