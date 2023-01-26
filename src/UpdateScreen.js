@@ -21,10 +21,11 @@ function displayLists() {
 }
 
 function displayTasks(index) {
-    const task = lists[index].tasks;
+    clearTasks();
+    const task = lists[index].tasks; //This const is storing the tasks according to
     const container = DOM().taskContainer;
 
-    task.forEach(taskProperties => {
+    task.forEach(taskProperties => { //Loop the the task object and getting the property values
         //Creating HTML Elements
         const taskDiv = document.createElement('div');
         const detailsDiv = document.createElement('div');
@@ -70,15 +71,18 @@ function displayTasks(index) {
         deleteBtn.classList.add('delete-btn');
         expandBtn.classList.add('expand-btn');
         descriptionText.classList.add('description-text');
+        
+
 
         //Adding Texts
-        titleText.innerText = taskProperties.taskName;
-        dateText.innerText = taskProperties.dueDate;
-        priorityText.innerText = taskProperties.priority;
+        titleText.innerText = taskProperties.getTaskName();
+        dateText.innerText = taskProperties.getTaskDate();
+        priorityText.innerText = taskProperties.getTaskPriority();
         editBtn.innerText = 'EDIT TASK';
         deleteBtn.innerText = 'DELETE TASK';
         expandBtn.innerText = 'SEE DESCRIPTION';
-        descriptionText.innerText = taskProperties.description;
+        descriptionText.innerText = taskProperties.getTaskDescription();
+
 
         //Inserting DOM to HTML
         container.append(taskDiv);
@@ -101,18 +105,25 @@ function displayTasks(index) {
     });
 }
 
+function clearTasks() {
+    const task = document.querySelectorAll('.task');
+    task.forEach(eachTask => {
+        eachTask.remove();
+    });
+}
+
 function clearLists() {
     DOM().lists().forEach(eachList => {
         eachList.remove();
     });
 }
 
-
 function changeList() {
     const listsBtn = DOM().lists();
-    listsBtn.forEach((list, index) => {
+    listsBtn.forEach((list, newListIndex) => {
         list.addEventListener('click', () => {
-            console.log(lists[index].tasks);
+            listIndex = newListIndex;
+            displayTasks(listIndex);
         });
     });
 }

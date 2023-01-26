@@ -1,8 +1,8 @@
 import DOM from "./DOM";
-import { checkListName, checkTaskInputs, whichList, checkListIndex } from "./Conditionals"
+import { checkListName, checkTaskInputs, listIndex} from "./Conditionals"
 import { list, lists, createList } from "./List";
-import { changeList, clearLists, displayLists } from "./UpdateScreen";
-import { Task } from "./Tasks";
+import { changeList, clearLists, displayLists, displayTasks } from "./UpdateScreen";
+import { createTask, Task } from "./Tasks";
 
 const events = (function () {
     /**Opening Functions */
@@ -59,17 +59,11 @@ const events = (function () {
             /**If inputs are not empty, then it's gonna create a task */
 
             if (isTextValid) {
-                console.log({
-                    taskName,
-                    dueDate,
-                    priority,
-                    description
-                });
-
-                const newTask = Task(taskName, dueDate, priority, description);
+               
+                createTask(taskName, dueDate, priority, description);
                 DOM().backgroundTask.classList.add('hidden');
                 alert('Task Created Successfully');
-                console.table(newTask);
+                
                 
             } else {
                 return 'nothing';

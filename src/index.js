@@ -5,6 +5,7 @@ import { listIndex } from "./Conditionals";
 (function initialSetup() {
     displayLists();
     displayTasks(listIndex);
+    changeList();
     events()
 })();
 
