@@ -17,6 +17,7 @@ const DOM = () => {
     const taskDescription = () => document.querySelector('#task-description').value;
     const taskContainer = document.querySelector('.tasks');
     const editBtn = () => document.querySelectorAll('.edit-btn');
+    const deleteTaskBtn = () => document.querySelectorAll('.delete-btn');
 
     return {
         openListForm,
@@ -36,7 +37,8 @@ const DOM = () => {
         taskDescription,
         taskContainer,
         confirmEditBtn,
-        editBtn
+        editBtn,
+        deleteTaskBtn
     }
 }
 

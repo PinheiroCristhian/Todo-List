@@ -2,7 +2,7 @@ import DOM from "./DOM";
 import { checkListName, checkTaskInputs, listIndex, taskIndex} from "./Conditionals"
 import { list, lists, createList } from "./List";
 import { changeList, clearLists, clearTaskInputs, displayLists, displayTasks } from "./UpdateScreen";
-import { createTask, editTask, Task } from "./Tasks";
+import { createTask, deleteTask, editTask, Task } from "./Tasks";
 
 const events = (function () {
     /**Opening Functions */
@@ -26,9 +26,14 @@ const events = (function () {
 
     (function closeTaskForm() {
         DOM().cancelTask.addEventListener('click', () => {
+            //If i have opened the Edit form before, when i cancel it, it's gonna hide de edit button and return the confirm task button
+            DOM().confirmTaskBtn.classList.remove('hidden');
+            DOM().confirmEditBtn.classList.add('hidden');
             DOM().backgroundTask.classList.add('hidden');
         });
     })();
+
+   
 
     /**Creation Functions*/
     (function createListFunc() {
@@ -63,7 +68,6 @@ const events = (function () {
                 DOM().backgroundTask.classList.add('hidden');
                 alert('Task Created Successfully');
                 clearTaskInputs();
-                
             } else {
                 return;
             }
@@ -80,20 +84,18 @@ const events = (function () {
             /**If inputs are not empty, then it's gonna create a task */
 
             if (isTextValid) {
-                //createTask(taskName, dueDate, priority, description);
-
-                //DOM().backgroundTask.classList.add('hidden');
                 editTask(taskName, dueDate, priority, description, taskIndex);
                 alert('Task Edited Successfully');
-               // console.log({taskName, dueDate, priority, description});
+                clearTaskInputs();
             } else {
                 return;
             }
         });
     })();
 
-    /**Change List*/
-    
+    (function deleteTaskFunc() {
+        //deleteTask();
+    })();
   
 
 })();

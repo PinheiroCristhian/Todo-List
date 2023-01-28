@@ -1,6 +1,6 @@
 import { lists } from "./List";
 import { listIndex, taskIndex } from "./Conditionals";
-import { displayTasks } from "./UpdateScreen";
+import { closeEditForm, displayTasks } from "./UpdateScreen";
 
 
 const Task = (task, date, priority, description) => {
@@ -8,32 +8,6 @@ const Task = (task, date, priority, description) => {
     let taskDate = date;
     let taskPriority = priority;
     let taskDescription = description;
-
-    /*const getTaskName = () => {
-        return taskName;
-    };
-    const getTaskDate = () => {
-        return taskDate;
-    };
-    const getTaskPriority = () => {
-        return taskPriority;
-    };
-    const getTaskDescription = () => {
-        return taskDescription;
-    }
-
-    const setTaskName = task => {
-        taskName = task;
-    }
-    const setTaskDate = newTaskDate => {
-        date = newTaskDate;
-    }
-    const setTaskPriority = newTaskPriority => {
-        priority = newTaskPriority;
-    }
-    const setTaskDescription = newTaskDescription => {
-        description = newTaskDescription;
-    }*/
 
     return {
         get task() {
@@ -70,31 +44,36 @@ const Task = (task, date, priority, description) => {
 function createTask(name, date, taskPriority, taskDescription) {
     const newTask = Task(name, date, taskPriority, taskDescription);
     lists[listIndex].tasks.push(newTask);
-    //console.log(lists[listIndex].tasks)
     displayTasks(listIndex);
+
 }
 
 function editTask(newName, newDate, newPriority, newDescription, taskIndex) {
-    console.log('================================================================');
-    console.log('BEFORE');
-    console.log(`${lists[listIndex].tasks[taskIndex].task}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].date}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].priority}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].description}`);
-    console.log('================================================================');
-    console.log('================================================================');
-    console.log('AFTER');
     lists[listIndex].tasks[taskIndex].task = newName;
     lists[listIndex].tasks[taskIndex].date = newDate;
     lists[listIndex].tasks[taskIndex].priority = newPriority;
     lists[listIndex].tasks[taskIndex].description = newDescription;
-
-    console.log(`${lists[listIndex].tasks[taskIndex].task}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].date}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].priority}`);
-    console.log(`${lists[listIndex].tasks[taskIndex].description}`);
-
-
-
+    displayTasks(listIndex);
+    closeEditForm();
 }
-export { Task, createTask, editTask }
+
+function deleteTask() {
+    const deleteBtn = () => document.querySelectorAll('.delete-btn');
+
+    deleteBtn().forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            let confirmDeletion = confirm('Do really want to delete this task?');
+            if (confirmDeletion) {
+                lists[listIndex].tasks.splice(index, 1)
+                console.log(lists[listIndex].tasks[index]);
+                displayTasks(listIndex);
+            } else {
+                return;
+            }
+            
+        });
+    });
+    
+}
+
+export { Task, createTask, editTask, deleteTask }

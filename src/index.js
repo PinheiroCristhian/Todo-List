@@ -6,6 +6,7 @@ import { listIndex } from "./Conditionals";
     displayLists();
     displayTasks(listIndex);
     changeList();
+
     events()
 })();
 

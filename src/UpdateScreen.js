@@ -1,6 +1,7 @@
 import DOM from "./DOM";
 import { lists } from "./List";
 import { listIndex, taskIndex } from "./Conditionals";
+import { deleteTask } from "./Tasks";
 
 function displayLists() {
     lists.forEach(eachList => {
@@ -82,7 +83,6 @@ function displayTasks(index) {
         deleteBtn.innerText = 'DELETE TASK';
         expandBtn.innerText = 'SEE DESCRIPTION';
         descriptionText.innerText = taskProperties.description;
-        console.log(taskProperties)
         
 
 
@@ -107,6 +107,7 @@ function displayTasks(index) {
         descriptionDiv.append();
     });
     openEditForm();
+    deleteTask();
 }
 
 function clearTasks() {
@@ -148,21 +149,24 @@ function openEditForm() {
 
     editBtn.forEach((task, newTaskIndex) => {
         task.addEventListener('click', () => {
-
             editForm.classList.remove('hidden');
             confirmEdit.classList.remove('hidden');
             confirmTaskBtn.classList.add('hidden');
             taskIndex = newTaskIndex;
-            //console.log(`Task index is ${taskIndex}`)
-            
-
 
         });
     });
 }
 
-function editTask() {
+function closeEditForm() {
+    const confirmEdit = DOM().confirmEditBtn;
+    const confirmTaskBtn = DOM().confirmTaskBtn;
+    const editForm = DOM().backgroundTask;
 
+    editForm.classList.add('hidden');
+    confirmEdit.classList.add('hidden');
+    confirmTaskBtn.classList.remove('hidden');
 }
 
-export { displayLists,changeList, clearLists, displayTasks, openEditForm, clearTaskInputs };
+
+export { displayLists,changeList, clearLists, displayTasks, openEditForm, clearTaskInputs, closeEditForm };
