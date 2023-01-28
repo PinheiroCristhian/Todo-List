@@ -45,7 +45,6 @@ function createTask(name, date, taskPriority, taskDescription) {
     const newTask = Task(name, date, taskPriority, taskDescription);
     lists[listIndex].tasks.push(newTask);
     displayTasks(listIndex);
-
 }
 
 function editTask(newName, newDate, newPriority, newDescription, taskIndex) {
@@ -70,10 +69,8 @@ function deleteTask() {
             } else {
                 return;
             }
-            
         });
     });
-    
 }
 
 export { Task, createTask, editTask, deleteTask }

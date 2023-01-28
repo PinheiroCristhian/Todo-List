@@ -1,9 +1,10 @@
 import DOM from "./DOM";
-import { lists } from "./List";
+import { deleteList, lists } from "./List";
 import { listIndex, taskIndex } from "./Conditionals";
 import { deleteTask } from "./Tasks";
 
 function displayLists() {
+    clearLists();
     lists.forEach(eachList => {
         const listDiv = document.createElement('div');
         const listName = document.createElement('span');
@@ -22,8 +23,8 @@ function displayLists() {
 }
 
 function displayTasks(index) {
-    clearTasks();
-    const task = lists[index].tasks; //This const is storing the tasks according to
+    clearTasks(); //Removes the currently task to avoid duplicating another task that has been removed
+    const task = lists[index].tasks; //This const is storing the tasks according to the list Index, the index is gonna be the currently list index
     const container = DOM().taskContainer;
 
     task.forEach(taskProperties => { //Loop the the task object and getting the property values
@@ -104,9 +105,10 @@ function displayTasks(index) {
         editDiv.append(editBtn);
         deleteDiv.append(deleteBtn);
         expandDescriptionDiv.append(expandBtn);
-        descriptionDiv.append();
+        descriptionDiv.append(descriptionText);
     });
     openEditForm();
+    showDescription();
     deleteTask();
 }
 
@@ -166,6 +168,17 @@ function closeEditForm() {
     editForm.classList.add('hidden');
     confirmEdit.classList.add('hidden');
     confirmTaskBtn.classList.remove('hidden');
+}
+
+function showDescription() {
+    const expandBtn = document.querySelectorAll('.expand-btn');
+    const description = document.querySelectorAll('.description');
+    expandBtn.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+        description[index].classList.toggle('hidden');
+        console.log(btn.className);
+        });
+    })
 }
 
 

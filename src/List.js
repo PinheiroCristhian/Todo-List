@@ -1,3 +1,6 @@
+import { listIndex } from "./Conditionals";
+import { displayLists, displayTasks } from "./UpdateScreen";
+
 const lists = [
     {
         getListName: 'Default',
@@ -39,6 +42,24 @@ function createList(listName) {
     lists.push(newList);
 }
 
+function deleteList() {
+    const deleteListBtn = document.querySelector('#delete-list-btn');
+    deleteListBtn.addEventListener('click', () => {
+        let confirmDeletion = confirm('Do really want to delete this list?');
+        if (lists.length > 0) {
+            if (confirmDeletion) {
+                lists.splice(listIndex, 1);
+                listIndex = 0;
+                displayLists();
+                displayTasks(listIndex);
+                
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }    
+    });
+}
 
-
-export { lists, list, createList };
+export { lists, list, createList, deleteList };

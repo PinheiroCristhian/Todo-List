@@ -1,6 +1,6 @@
 import DOM from "./DOM";
 import { checkListName, checkTaskInputs, listIndex, taskIndex} from "./Conditionals"
-import { list, lists, createList } from "./List";
+import { list, lists, createList, deleteList } from "./List";
 import { changeList, clearLists, clearTaskInputs, displayLists, displayTasks } from "./UpdateScreen";
 import { createTask, deleteTask, editTask, Task } from "./Tasks";
 
@@ -93,10 +93,9 @@ const events = (function () {
         });
     })();
 
-    (function deleteTaskFunc() {
-        //deleteTask();
+    (function deleteListFunc() {
+        deleteList();
     })();
-  
 
 })();
 
