@@ -104,6 +104,9 @@ body * {
 .task-informations {
     border: 1px solid #183153;
 }
+.task-title {
+    border: 5px solid #183153;
+}
 .task-title,
 .task-date,
 .task-priority {
