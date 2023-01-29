@@ -104,14 +104,12 @@ body * {
 .task-informations {
     border: 1px solid #183153;
 }
-.task-title {
-    border: 5px solid #183153;
-}
+
 .task-title,
 .task-date,
 .task-priority {
-    float: left;
-    width: 33.333333%;
+ 
+    width: 100%;
     text-align: center;
     border-left: #183153 1px solid;
     border-bottom: 1px solid #183153;
@@ -223,4 +221,16 @@ body * {
 /*Basic setup*/
 .hidden {
     display: none !important;
+}
+#list-name-value {
+    width: 80%;
+}
+.task-form input,
+.task-form select,
+.task-form textarea {
+    width: 100%;
+}
+.task .info-task span {
+    display: inline-block;
+
 }
