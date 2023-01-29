@@ -64,7 +64,6 @@ function deleteTask() {
             let confirmDeletion = confirm('Do really want to delete this task?');
             if (confirmDeletion) {
                 lists[listIndex].tasks.splice(index, 1)
-                console.log(lists[listIndex].tasks[index]);
                 displayTasks(listIndex);
             } else {
                 return;

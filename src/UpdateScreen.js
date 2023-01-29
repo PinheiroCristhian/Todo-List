@@ -78,8 +78,8 @@ function displayTasks(index) {
 
         //Adding Texts
         titleText.innerText = taskProperties.task;
-        dateText.innerText = taskProperties.date;
-        priorityText.innerText = taskProperties.priority;
+        dateText.innerText = `Date: ${taskProperties.date}`;
+        priorityText.innerText = `Priority: ${taskProperties.priority}`;
         editBtn.innerText = 'EDIT TASK';
         deleteBtn.innerText = 'DELETE TASK';
         expandBtn.innerText = 'SEE DESCRIPTION';
@@ -176,7 +176,6 @@ function showDescription() {
     expandBtn.forEach((btn, index) => {
         btn.addEventListener('click', () => {
         description[index].classList.toggle('hidden');
-        console.log(btn.className);
         });
     })
 }
